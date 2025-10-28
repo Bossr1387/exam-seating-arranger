@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Intelligent exam seating arrangement tool that disperses candidates from the same organization">
+    <meta name="keywords" content="exam, seating, arrangement, organization, fairness">
+    <meta name="author" content="Crue Chan">
+    <title>Exam Seating Arranger</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🪑</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1>🪑 Exam Seating Arranger</h1>
+                <p>Intelligent seating arrangement to ensure exam fairness</p>
+            </div>
+            <a href="https://github.com/CrueChan/exam-seating-arranger" class="github-link" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
+                <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+                <span>GitHub</span>
+            </a>
+        </header>
+
+        <div class="content">
+            <!-- Configuration Section -->
+            <section class="config-section card">
+                <h2>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v6m0 6v6"></path>
+                    </svg>
+                    Column Configuration
+                </h2>
+                <p class="section-description">Define which columns contain organization and candidate information</p>
+                
+                <div class="config-grid">
+                    <div class="config-item">
+                        <label for="organizationColumn">Organization Column Name:</label>
+                        <input type="text" id="organizationColumn" placeholder="e.g., Company, Department, Unit" value="Organization">
+                        <span class="help-text">The column that groups candidates together</span>
+                    </div>
+                    
+                    <div class="config-item">
+                        <label for="nameColumn">Name Column Name:</label>
+                        <input type="text" id="nameColumn" placeholder="e.g., Name, Candidate, Student" value="Name">
+                        <span class="help-text">The column containing candidate names</span>
+                    </div>
+                    
+                    <div class="config-item">
+                        <label for="minSpacing">Minimum Spacing:</label>
+                        <input type="number" id="minSpacing" min="1" max="10" value="2">
+                        <span class="help-text">Minimum seats between same organization</span>
+                    </div>
+                </div>
+
+                <div class="config-advanced">
+                    <button class="accordion-btn" onclick="toggleAdvanced()" aria-expanded="false" aria-controls="advancedContent">
+                        <span>Advanced Options</span>
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content" id="advancedContent">
+                        <div class="config-item">
+                            <label>
+                                <input type="checkbox" id="hasHeaderRow" checked>
+                                Data has header row
+                            </label>
+                            <span class="help-text">Uncheck if your first row is data, not headers</span>
+                        </div>
+                        <div class="config-item">
+                            <label>
+                                <input type="checkbox" id="preserveOtherColumns" checked>
+                                Preserve all other columns
+                            </label>
+                            <span class="help-text">Keep all columns from original data in output</span>
+                        </div>
+                        <div class="config-item">
+                            <label>
+                                <input type="checkbox" id="randomizeOrder">
+                                Randomize organization order
+                            </label>
+                            <span class="help-text">Shuffle the order of organizations for extra randomness</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Input Section -->
+            <section class="input-section card">
+                <h2>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                    Input Data
+                </h2>
+                <p class="section-description">Paste your exam data (tab-separated from Excel/Sheets) or upload a file</p>
+                
+                <div class="file-upload-area">
+                    <input type="file" id="fileInput" accept=".csv,.tsv,.txt" style="display: none;" aria-label="Upload file">
+                    <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        Upload CSV/TSV File
+                    </button>
+                    <span class="or-divider">or paste directly below</span>
+                </div>
+
+                <textarea id="inputData" placeholder="ID&#9;Organization&#9;Name&#9;Room&#10;1&#9;Company A&#9;John Doe&#9;Room 101&#10;2&#9;Company A&#9;Jane Smith&#9;Room 101&#10;3&#9;Company B&#9;Bob Johnson&#9;Room 101&#10;..." aria-label="Input data textarea"></textarea>
+                
+                <div class="data-preview" id="dataPreview"></div>
+            </section>
+
+            <!-- Action Buttons -->
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="processData()">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="23 4 23 10 17 10"></polyline>
+                        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                    </svg>
+                    Rearrange Seats
+                </button>
+                <button class="btn btn-secondary" onclick="loadExample()">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 16v-4m0-4h.01"></path>
+                    </svg>
+                    Load Example
+                </button>
+                <button class="btn btn-danger" onclick="clearData()">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                    Clear All
+                </button>
+            </div>
+
+            <!-- Results Section -->
+            <section id="resultSection" class="result-section card hidden">
+                <h2>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Arrangement Results
+                </h2>
+                
+                <div class="stats" id="stats"></div>
+                
+                <div class="result-actions">
+                    <button class="btn btn-success" onclick="copyResult()">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copy to Clipboard
+                    </button>
+                    <button class="btn btn-success" onclick="downloadCSV()">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download CSV
+                    </button>
+                    <button class="btn btn-info" onclick="validateArrangement()">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        Validate Spacing
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table id="resultTable">
+                        <thead id="resultHeader"></thead>
+                        <tbody id="resultBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2025 Crue Chan | Exam Seating Arranger | An Open Source Project</p>
+            <p>
+                <a href="https://github.com/CrueChan/exam-seating-arranger/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a> | 
+                <a href="https://github.com/CrueChan/exam-seating-arranger/issues" target="_blank" rel="noopener noreferrer">Report Issue</a> |
+                <a href="https://github.com/CrueChan/exam-seating-arranger" target="_blank" rel="noopener noreferrer">Documentation</a>
+            </p>
+        </footer>
+    </div>
+
+    <div class="notification" id="notification" role="alert" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
